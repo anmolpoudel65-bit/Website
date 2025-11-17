@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Add to Cart</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Internal CSS */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        header {
+      background-color:#f6f6f6;
+      color: #000000;
+      padding: 5px 15px; /* Reduced padding for a thinner navbar */
+      
+    }
+
+      /* Navigation Bar Styles */
+      nav.navbar {
+      padding: 5px 0; /* Reduced padding for a thinner navbar */
+    }
+
+    .navbar ul {
+      display: flex;
+      justify-content: space-around;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar ul li {
+      list-style: none;
+    }
+
+    .navbar ul li a {
+      text-decoration: none;
+      color: #ffffff;
+      padding: 5px 15px; /* Reduced padding */
+      font-size: 14px; /* Reduced font size */
+    }
+    .container img{
+border-radius: 30%;
+    }
+        .container {
+            padding: 20px;
+        }
+        .product {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .product img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+        }
+        .product button {
+            padding: 8px 12px;
+            font-size: 14px;
+            color: white;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .product button:hover {
+            background-color: #218838;
+        }
+        .cart {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .cart-items {
+            list-style-type: none;
+            padding: 0;
+        }
+        .cart-items li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .cart-items li:last-child {
+            border-bottom: none;
+        }
+        .cart-items .remove-btn {
+            padding: 5px 10px;
+            font-size: 12px;
+            color: white;
+            background-color: #dc3545;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .cart-items .remove-btn:hover {
+            background-color: #c82333;
+        }
+        .cart-total {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        .cart-container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+.cart-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.cart-total {
+    margin-top: 10px;
+    text-align: right;
+    font-weight: bold;
+}
+.checkout-btn, .remove-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.checkout-btn {
+    background-color: #28a745;
+    color: white;
+    margin-top: 10px;
+}
+    </style>
+</head>
+<body>
+    <header class="section-navbar"> 
+        <div class="container">
+            <div class="navbar-brand">
+              <a href="ecommerceproject.html">
+               <img src="6563c341-de35-465b-a1a5-8587b13310e7.png" alt="" style="width: 200px;">
+              </a>
+            </div>
+            <form style="align-items: center;">
+              <div class="search">
+                <button type="submit" style="border: none; background-color: transparent;">
+
+                  <label for="">&#9906;</label>
+                </button>
+                  <input  class="search-input" type="search" placeholder="Search">
+              </div>
+            </form>
+            <nav class="navbar">
+              <ul>
+               <li class="nav-item">
+             <a href="ecommerceproject.html" class="nav-link">Home</a>
+               </li>
+               <li class="nav-item">
+                <a href="index.html" class="nav-link">about</a>
+              </li>
+              
+              <li class="nav-item">
+                <a href="blog.html" class="nav-link">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a href="addToCart.html" class="nav-link add-to-cart-button" id="cartValue">
+                  <label for="">&#128722;</label>
+                </a>
+              </li>
+              </ul>
+            </nav> 
+        </div>
+    </header>
+    <div class="container">
+        <h2>Products</h2>
+        <div class="product">
+            <span>Product 1</span>
+            <span>$10</span>
+            <button onclick="addToCart('Product 1', 10)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <span>Product 2</span>
+            <span>$15</span>
+            <button onclick="addToCart('Product 2', 15)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <span>Product 3</span>
+            <span>$20</span>
+            <button onclick="addToCart('Product 3', 20)">Add to Cart</button>
+        </div>
+
+        <div class="cart">
+            <h2>Cart</h2>
+            <ul class="cart-items" id="cart-items"></ul>
+            <div class="cart-total" id="cart-total">Total: $0</div>
+        </div>
+    </div>
+    <script>
+        // Internal JavaScript
+        const cart = [];
+
+        function addToCart(productName, productPrice) {
+            cart.push({ name: productName, price: productPrice });
+            updateCart();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1); // Remove the item at the specified index
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            cartItems.innerHTML = ''; // Clear the current cart items
+
+            let total = 0;
+            cart.forEach((item, index) => {
+                total += item.price;
+
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    ${item.name} - $${item.price} 
+                    <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
+                `;
+                cartItems.appendChild(li);
+            });
+
+            cartTotal.textContent = `Total: $${total}`;
+        }
+    </script>
+     <div class="cart-container">
+        <h2>Shopping Cart</h2>
+        <div id="cartItems"></div>
+        <div class="cart-total">Total: Nrs.<span id="totalAmount">0</span></div>
+        <button class="checkout-btn" onclick="checkout()">Checkout</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <title>Cassiodor</title>
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: "Urbanist", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --buttonColor: #2a2c30;
+  --secondaryColor: #4b4f56;
+  --borderColor: #e3eaf0;
+  --backgroundColor: #f8eeee;
+  --backgroundSecondary: #fefefe;
+  --textColor: #1e1f23;
+  --anchorColor: #535bf2;
+  --main-color: #535bf2;
+  --supporting-color: #ebf3fe;
+  --glow-color: hsl(186, 91%, 4%);
+}
+
+
+.search {
+  --padding: 14px;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  padding: var(--padding);
+  border-radius: 28px;
+  background: #f6f6f6;
+  transition: background 0.25s, box-shadow 0.25s;
+  margin-left: auto; /* Push search bar to the right */
+  margin-right: 20px; /* Create space from nav items */
+}
+
+.search:focus-within {
+  background: #e9e9e9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+header, footer {
+  background: linear-gradient(90deg, #707984, #7092d1);
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+}
+.search-input {
+  font-size: 16px;
+  font-family: 'Lexend', sans-serif;
+  color: #333333;
+  margin-left: var(--padding);
+  border: none;
+  background-color: transparent;
+  flex: 1;
+}
+.search-icon{
+   
+   display: inline-block;
+   transform: rotate(-45deg);
+}
+.search-input::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+/* Adjust Navbar Container */
+.section-navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px; /* Override default container padding */
+}
+
+.section-navbar .navbar ul {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  margin-left: auto; /* Push nav items to the left */
+}
+html {
+  font-size: 62.5%;
+  color: var(--textColor);
+}
+
+/* have a look into body once after we done with rest of the styling  */
+body {
+  margin: 0 auto;
+  padding: 0 32px;
+  min-width: 320px;
+  background-color: #f9f9f3;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.1;
+  color: var(--textColor);
+}
+
+h1 {
+  font-size: 32px;
+}
+h2 {
+  font-size: 32px;
+}
+
+p,
+li,
+a,
+label {
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: var(--para-color);
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: #646cff;
+  text-decoration: none;
+  &:hover {
+    color: hwb(237 33% 5%);
+  }
+}
+
+::placeholder {
+  font-family: "Urbanist", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+/*! layout */
+.container {
+  max-width: 1420px;
+  margin: 0 auto;
+  padding: 96px 24px;
+}
+ /*! module / reusable  */
+ .btn {
+  display: inline-block;
+  padding: 12px 32px;
+  background-color: var(--main-color);
+  color: var(--white-color);
+  text-transform: capitalize;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
+.section-common--title {
+  font-size: 20px;
+  margin: 24px 0 12px 0;
+}
+
+/* states  */
+.btn:hover {
+  background-color: var(--bnt-hover-bg-color);
+  box-shadow: var(--btn-box-shadow);
+  cursor: pointer;
+}
+.btn:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--para-color);
+}
+/***** Navbar Section *****/
+.section-navbar {
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+.section-navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px; /* we override the main container padding property  */
+}
+.section-navbar img {
+  width: 45%;
+}
+.section-navbar .navbar ul {
+  display: flex;
+  gap: 32px;
+  text-transform: capitalize;
+  align-items: center;
+  & li a {
+    color: var(--heading-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 16px;
+    display: inline-block;
+    position: relative;
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0%;
+      border-bottom: 1px solid var(--main-color);
+      transition: all 0.3s linear;
+    }
+  }
+  & li a:hover {
+    color: var(--main-color);
+  }
+
+  & li a:hover:after {
+    width: 100%;
+  }
+}
+
+/***** Navbar End Section *****/
+
+/***** Start Footer Section *****/
+footer {
+  width: 100%;
+  background: linear-gradient(90deg, #707984, #7092d1);
+  color: #ffffff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  margin-top: 64px;
+}
+
+.footer-container .content_1 img {
+  height: auto;
+  width: 150px;
+  border-radius: 40%;
+}
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 60px 0;
+}
+.footer-container h4 {
+  color: var(--white);
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+  font-size: 18px;
+}
+.footer-container a {
+  display: block;
+  text-decoration: none;
+  color: #cccccc;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+.footer-container .content_1 p,
+.footer-container .content_4 p {
+  color: #cccccc;
+  margin: 25px 0;
+  font-size: 14px;
+}
+.footer-container .content_4 input[type="email"] {
+  background-color: var(--textColor);
+  border: none;
+  color: var(--backgroundColor);
+  outline: none;
+  padding: 14px 8px;
+  width: 100%;
+}
+.footer-container .content_4 .f-mail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-container .content_4 .bx {
+  color: var(--white);
+}
+.f-design {
+  width: 100%;
+  color: var(--white);
+  text-align: center;
+}
+.f-design .f-design-txt {
+  border-top: 1px solid var(--secondaryColor);
+  padding: 16px 0;
+  color: var(--secondaryColor);
+}
+/***** End Footer Section *****/
+
+/**** Our Home product section  Starts ***/
+#productContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+
+  & .information {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+  }
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 25px;
+  width: 360px;
+  padding: 16px;
+  /* max-width: 1000px; */
+  margin: 1.8vh auto;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border-radius: 3px;
+  /*border: 1px solid #ccc;
+  */
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+.category {
+  background-color: #e7d6d6;
+  padding: 3px 12px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  -ms-border-radius: 100px;
+  -o-border-radius: 100px;
+}
+.productImage {
+  max-width: 100%;
+  width: 320px;
+  height: auto;
+}
+.productPriceElement,
+.productQuantityElement,
+.productStockElement {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  text-align: center;
+}
+.productPriceElement {
+  margin: 8px 0;
+}
+.productProperty,
+.productDescription {
+  font-size: 16px;
+}
+.stockElement {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  border: 2px solid var(--borderColor);
+  border-radius: 8px;
+  margin: 8px 0;
+  & button {
+    background-color: transparent;
+    color: var(--buttonColor);
+    font-size: 20px;
+    padding: 6px 20px;
+    font-weight: bold;
+    border: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+    &:first-child {
+      border-right: 1px solid var(--borderColor);
+      border-radius: 0;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      -ms-border-radius: 0;
+      -o-border-radius: 0;
+    }
+    &:last-child {
+      border-left: 1px solid var(--borderColor);
+      border-radius: 0;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      -ms-border-radius: 0;
+      -o-border-radius: 0;
+    }
+  }
+  .productQuantity {
+    padding: 0px 30px;
+    margin: 0;
+    font-weight: bold;
+  }
+}
+/**** Our Home product section Ends  ****/
+#cartValue {
+  background-color: var(--buttonColor);
+  color: #fff;
+  padding: 10px 20px;
+}
+.add-to-cart-button,
+.contact-btn,
+.hero-btn a {
+  font-weight: 500;
+  font: inherit;
+  border-radius: 6px;
+  border: 0;
+  padding: 10px 28px;
+  background-color: var(--buttonColor);
+  color: #fff;
+  font-size: 16px;
+  /* margin-top: 12px; */
+  &:hover {
+    box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.16),
+      inset 0px 0px 0px 3px rgb(51, 51, 51);
+    background-color: var(--backgroundColor);
+    color: var(--buttonColor);
+    cursor: pointer;
+  }
+  .fa-cart-shopping {
+    padding-right: 10px;
+  }
+}
+/*****  media queries Section *****/
+
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f3; /* Light cream background color */
+      color: #333;
+    }
+
+    header {
+      background-color:#f6f6f6;
+      color: #000000;
+      padding: 5px 15px; /* Reduced padding for a thinner navbar */
+      
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 1200px;
+    }
+
+    section h2 {
+      text-align: center;
+      color: #b76e79; /* Rose gold color for the heading */
+      margin-bottom: 20px;
+    }
+
+    /* Classic Chronograph Section */
+    #ClassicChronograph .watch-card button {
+      background-color: #b76e79; /* Rose gold color for Classic Chronograph Add to Cart button */
+    }
+
+    /* Routine Watches Section */
+    #RoutineWatches h2 {
+      color: grey; /* Grey color for Routine Watches heading */
+    }
+
+    #RoutineWatches .watch-card button {
+      background-color: grey; /* Grey color for Routine Watches Add to Cart button */
+    }
+
+    #RoutineWatches .watch-card p {
+      color: grey; /* Grey color for Routine Watches description */
+    }
+
+    /* Digital Wearables Section */
+    #DigitalWearable h2 {
+      color: black; /* Black color for Digital Wearables heading */
+    }
+
+    #DigitalWearable .watch-card button {
+      background-color: black; /* Black color for Digital Wearables Add to Cart button */
+    }
+
+    #DigitalWearable .watch-card p {
+      color: black; /* Black color for Digital Wearables description */
+    }
+
+    /* Watch Card Container */
+    .watch-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    /* Watch Card Styles */
+    .watch-card {
+      width: 30%;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    .watch-card .image {
+      background-size: cover;
+      background-position: center;
+      height: 300px;
+      border-radius: 8px 8px 0 0;
+    }
+
+    .watch-card .content {
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 0 0 8px 8px;
+      color: #333;
+    }
+
+    .watch-card h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #b76e79; /* Rose gold color for the headings */
+    }
+
+    .watch-card p {
+      font-size: 14px;
+      line-height: 1.5;
+      color: #b76e79; /* Rose gold color for the paragraph text */
+    }
+
+    .watch-card button {
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    /* Button hover colors */
+    .watch-card button:hover {
+      opacity: 0.8;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .watch-card {
+        width: 100%;
+        margin: 10px 0;
+      }
+    }
+    .navbar ul {
+      display: flex;
+      justify-content: space-around;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar ul li {
+      list-style: none;
+    }
+
+    .navbar ul li a {
+      text-decoration: none;
+      color: #ffffff;
+      padding: 5px 15px; /* Reduced padding */
+      font-size: 14px; /* Reduced font size */
+    }
+    .container img{
+border-radius: 30%;
+    }
+    .watch-card{
+        width: 250px;
+        margin: 0 10px;
+        box-shadow: 0 0 20px 2px rgba(0, 0, 0, .1);
+        transition: 1s;
+    }
+    .watch-card image{
+        display: block;
+        width: 100%;
+        border-radius: 5px;
+    }
+    .watch-card:hover{
+     transform: scale(1.3);
+     z-index: 2;
+    }
+  
+    
+  </style>
+</head>
+<body>
+ 
+    <header class="section-navbar"> 
+        <div class="container">
+            <div class="navbar-brand">
+              <a href="/Home page/Code/ecommerceproject.html">
+               <img src="/Products page/IMages/6563c341-de35-465b-a1a5-8587b13310e7.png" alt="">
+              </a>
+            </div>
+            <form style="align-items: center;">
+              <div class="search">
+                <button type="submit" style="border: none; background-color: transparent;">
+
+                  <label for="">
+                    <span class="search-icon">
+                      &#9906;
+                    </span>
+                  </label>
+                </button>
+                  <input  class="search-input" type="search" placeholder="Search">
+              </div>
+            </form>
+            <nav class="navbar">
+              <ul>
+               <li class="nav-item">
+             <a href="/Home page/Code/ecommerceproject.html" class="nav-link">Home</a>
+               </li>
+               <li class="nav-item">
+                <a href="/About us/code/index.html" class="nav-link">about</a>
+              </li>
+              
+              <li class="nav-item">
+                <a href="/Blog/code/blog.html" class="nav-link">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a href="/Research/reseRCHHHHH.HTML" class="nav-link" style="color: black;">Research</a>
+              </li>
+              <li class="nav-item">
+                <a href="/Form Validation/formvalidation.html"  id="signup" style="color: black;">
+                 Signup
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/Add to cart/Adtocart.html" class="nav-link add-to-cart-button" id="cartValue">
+                  <label for="">&#128722;</label>
+                </a>
+              </li>
+              </ul>
+            </nav> 
+        </div>
+    </header>
+
+
+
+  <!-- Classic Chronograph Watches Section -->
+  <section id="ClassicChronograph">
+    <h2>Classic Chronographs</h2>
+    <div class="watch-container">
+      <div class="watch-card">
+        <div class="image" style="background-image: url('/Products\ page/IMages/watch1stttt.avif');"></div>
+        <div class="content">
+          <h3>Exquisite Watch</h3>
+          <p><strong>Price:</strong> <strike>RS 2,13,500</strike></p>
+          <br>  <p><strong>Offer Price:</strong>RS 2,12,999</p>
+         <br> <p>Designer piece with royal green color, crafted with attention to every small detail. A true luxury for men.</p>
+          <button  onclick="location.href='/Add to cart/Adtocart.html'">
+            Go to cart
+          </button>
+        </div>
+      </div>
+      <div class="watch-card">
+        <div class="image" style="background-image: url('/Products\ page/IMages/Watch2.jpg.webp');"></div>
+        <div class="content">
+          <h3>Collector's Timepiece</h3>
+          <p><strong>Price:</strong><strike> RS 3,50,000</strike></p>
+          <br>  <p><strong>Offer Price:</strong>RS 3,49,999</p>
+      <br>    <p>Timeless elegance with diamonds engraved in the middle. A premium piece for women that stands the test of time.</p>
+      <button  onclick="location.href='/Add to cart/Adtocart.html'">
+        Go to cart
+      </button>
+        </div>
+      </div>
+      <div class="watch-card">
+        <div class="image" style="background-image: url('/Products\ page/IMages/watch3.webp');"></div>
+        <div class="content">
+          <h3>Timeless Luxury Timepiece</h3>
+          <p><strong>Price:</strong><strike> RS 5,49,569</strike></p>
+          <br>  <p><strong>Offer Price:</strong>RS 5,48,999</p>
+        <br>  <p>Limited edition with impeccable detailing and performance. A must-have for collectors.</p>
+        <button  onclick="location.href='/Add to cart/Adtocart.html'">
+          Go to cart
+        </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Routine Watches Section -->
+  <section id="RoutineWatches">
+    <h2>Routine Watches</h2>
+    <div class="watch-container">
+      <div class="watch-card">
+        <div class="image" style="background-image: url('/Products\ page/IMages/watch4.webp');"></div>
+        <div class="content">
+          <h3 style="color: grey;">Functional Timepiece</h3>
+          <p style="color: grey;"><strong>Price:</strong><strike> RS 12,215</strike></p>
+          <br>  <p style="color: grey;"><strong>Offer Price:</strong>RS 11,999</p>
+       <br>   <p style="color: grey;">Designed for everyday use, this watch is easy to wear and ideal for men who value simplicity and durability.</p>
+          <button style="background-color: grey;" onclick="location.href='/Add to cart/Adtocart.html'">Go to Cart</button>
+        </div>
+      </div>
+      <div class="watch-card">
+        <div class="image" style="background-image: url('/Products\ page/IMages/watch5.webp');"></div>
+        <div class="content">
+          <h3 style="color: grey;">Day-to-Day Watch</h3>
+          <p style="color: grey;"><strong>Price:</strong><strike>RS 16,490</strike> </p>
+          <br>  <p style="color: grey;"><strong>Offer Price:</strong>RS 12,999</p>
+        <br>  <p style="color: grey;">A unisex watch featuring a leather strap, perfect for daily use. It offers a stylish yet practical design.</p>
+        <button style="background-color: grey;" onclick="location.href='/Add to cart/Adtocart.html'">Go to Cart</button>
+        </div>
+      </div>
+      <div class="watch-card">
+        <div class="image" style="background-image: url('/Products\ page/IMages/watch6.webp');"></div>
+        <div class="content">
+          <h3 style="color: grey;">Casual Watch</h3>
+          <p style="color: grey;"><strong>Price:</strong> <strike>Rs 13,238</strike></p>
+          <br>  <p style="color: grey;"><strong>Offer Price:</strong>RS 12,999</p>
+         <br> <p style="color: grey;">This rose gold women’s watch is perfect for everyday use. Made with high-quality materials for durability.</p>
+         <button style="background-color: grey;" onclick="location.href='/Add to cart/Adtocart.html'">Go to Cart</button>
+        </div>
+      </div>
+    </div>
+</section>
+  <!-- Digital Wearable Section -->
+<section id="DigitalWearable">
+    <h2>Digital Wearables</h2>
+    <div class="watch-container">
+      <div class="watch-card" id="watch111">
+        <div class="image" style="background-image: url('/Products\ page/IMages/watch7.webp');"></div>
+        <div class="content">
+          <h3 style="color: black;">Smartband</h3>
+          <p style="color: black;"><strong>Price:</strong> <strike> RS 30,444 </strike></p>
+        <br>  <p style="color: black;"><strong>Offer Price:</strong>RS 29,999</p>
+         <br> <p style="color: black;">A digital marvel offering various features, including fitness tracking, notifications, heart rate monitoring, and seamless integration with your smartphone.</p>
+         <button  onclick="location.href='/Add to cart/Adtocart.html'">
+          Go to cart
+        </button>
+        </div>
+      </div>
+      <div class="watch-card">
+        <div class="image" style="background-image: url('/Products\ page/IMages/watch8.webp');"></div>
+        <div class="content">
+          <h3 style="color: black;">Connected Timepiece</h3>
+          <p style="color: black;"><strong>Price:</strong> <strike>RS 18,500</strike></p>
+          <br>  <p style="color: black;"><strong>Offer Price:</strong>RS 17,999</p>
+        <br>  <p style="color: black;">Featuring a high-resolution digital screen for clear visuals, this watch combines modern style with advanced functionality, including activity tracking and message notifications.</p>
+        <button  onclick="location.href='/Add to cart/Adtocart.html'">
+          Go to cart
+        </button>
+        </div>
+      </div>
+      <div class="watch-card">
+        <div class="image" style="background-image: url('/Products\ page/IMages/watch9.webp');"></div>
+        <div class="content">
+          <h3 style="color: black;">Smart Chronometer</h3>
+          <p style="color: black;"><strong>Price:</strong> <strike>RS 23,549</strike></p>
+          <br>  <p style="color: black;"><strong>Offer Price:</strong>RS 22,999</p>
+       <br>   <p style="color: black;">Highly durable and built to last, this watch offers excellent battery life along with advanced features like sleep tracking, step counting, and notification alerts.</p>
+       <button  onclick="location.href='/Add to cart/Adtocart.html'">
+        Go to cart
+      </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="section-footer">
+    <div class="footer-container container">
+      <div class="content_1">
+        <img src="/Products page/IMages/6563c341-de35-465b-a1a5-8587b13310e7.png" alt="logo" />
+        <p>
+          Welcome to Cassiodor EcomStore, your Ultimate Destination for
+          cutting-edge Watches!
+        </p>
+        <img src="https://i.postimg.cc/Nj9dgJ98/cards.png" alt="cards" />
+      </div>
+      <div class="content_2">
+        <h4>SHOPPING</h4>
+        <a href="#">Luxury watches Store</a>
+        <a href="#RoutineWatches">Routine watches</a>
+        <a href="#DigitalWearable">Smart watch Store</a>
+      </div>
+      <div class="content_3">
+        <h4>Experience</h4>
+        <a href="/Contact us/contactus.html">Contact Us</a>
+        <a href="/Paayment methods/paymentmethods.html" target="_blank">Payment Method</a>
+      </div>
+      <div class="content_4">
+        <h4>NEWSLETTER</h4>
+        <p>Be the first to know about new<br />arrivals, sales & promos!</p>
+        <div class="f-mail">
+          <input type="email" placeholder="Your Email" />
+          <i class="bx bx-envelope"></i>
+        </div>
+        <hr />
+      </div>
+    </div>
+    <div class="f-design">
+      <div class="f-design-txt">
+        <p>Design and Code by Our team</p>
+      </div>
+    </div>
+  </footer>
+  </body>
+</html>

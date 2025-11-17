@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root{
+            font-family: "Urbanist", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --buttonColor: #2a2c30;
+  --secondaryColor: #4b4f56;
+  --borderColor: #e3eaf0;
+  --backgroundColor: #f8eeee;
+  --backgroundSecondary: #fefefe;
+  --textColor: #1e1f23;
+  --anchorColor: #535bf2;
+  --main-color: #535bf2;
+  --supporting-color: #ebf3fe;
+  --glow-color: hsl(186, 91%, 4%);
+        }
+        .search{
+            --padding:14px;
+            width: max-content;
+            display: flex;
+            align-items: center;
+            padding: var(--padding);
+            border-radius: 28px;
+            background: #f6f6f6;
+            transition: background 0.25s, box-shadow 0.25s;
+            margin-left: auto;
+            margin-right: 20px;
+        }
+        .search:focus-within{
+            background: #e9e9e9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        header{
+            background: linear-gradient(90deg,#707984,#7092d1);
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+        .search-input{
+            font-size: 16px;
+            font-family: 'Lexend', sans-serif;
+             color: #333333;
+             margin-left: var(--padding);
+             border: none;
+             background-color: transparent;
+             flex: 1;
+        }
+        .search-input::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+/* Adjust Navbar Container */
+.section-navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px; /* Override default container padding */
+}
+.section-navbar .navbar ul {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  margin-left: auto; /* Push nav items to the left */
+}
+html {
+  font-size: 62.5%;
+  color: var(--textColor);
+}
+body {
+  margin: 0 auto;
+  min-width: 320px;
+  background-color: #f9f9f3;
+
+}
+p,
+li,
+a,
+label {
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: var(--para-color);
+  line-height: 1.5;
+  font-weight: 400;
+}
+li {
+  list-style: none;
+}
+
+a {
+  color: #646cff;
+  text-decoration: none;
+  &:hover {
+    color: hwb(237 33% 5%);
+  }
+}
+::placeholder {
+  font-family: "Urbanist", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+/*! layout */
+.container {
+  max-width: 1420px;
+  margin: 0 auto;
+  padding: 96px 24px;
+}
+/*! module / reusable  */
+.btn {
+  display: inline-block;
+  padding: 12px 32px;
+  background-color: var(--main-color);
+  color: var(--white-color);
+  text-transform: capitalize;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
+/* states  */
+.btn:hover {
+  background-color: var(--bnt-hover-bg-color);
+  box-shadow: var(--btn-box-shadow);
+  cursor: pointer;
+}
+.btn:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--para-color);
+}
+/***** Navbar Section *****/
+.section-navbar {
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+.section-navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px; /* we override the main container padding property  */
+}
+.section-navbar img {
+  width: 45%;
+}
+.section-navbar .navbar ul {
+  display: flex;
+  gap: 32px;
+  text-transform: capitalize;
+  align-items: center;
+  & li a {
+    color: var(--heading-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 16px;
+    display: inline-block;
+    position: relative;
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0%;
+      border-bottom: 1px solid var(--main-color);
+      transition: all 0.3s linear;
+    }
+  }
+  & li a:hover {
+    color: var(--main-color);
+  }
+
+  & li a:hover:after {
+    width: 100%;
+  }
+}
+#home h1, #products h1, #about h1, #blog h1, #contact h1, #payment h1, #Inspiration h1 {
+  font-size: 25px; /* Customize size as needed */
+  text-align: center;
+}
+
+
+/***** Navbar End Section *****/
+.research-section {
+      background-color: #fff;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .research-section img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .research-section p {
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+    .reviews {
+      margin-top: 40px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .review {
+      background-color: #f9f9f9;
+      margin-bottom: 10px;
+      padding: 15px;
+      border-radius: 5px;
+    }
+    .review h3 {
+      margin: 0;
+      color: #333;
+    }
+    .review p {
+      font-style: italic;
+      color: #666;
+    }
+   /***** Start Footer Section *****/
+footer {
+  width: 100%;
+  background: linear-gradient(90deg, #707984, #7092d1);
+  color: #ffffff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  margin-top: 64px;
+}
+
+.footer-container .content_1 img {
+  height: auto;
+  width: 150px;
+  border-radius: 40%;
+}
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 60px 0;
+}
+.footer-container h4 {
+  color: var(--white);
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+  font-size: 18px;
+}
+.footer-container a {
+  display: block;
+  text-decoration: none;
+  color: #cccccc;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+.footer-container .content_1 p,
+.footer-container .content_4 p {
+  color: #cccccc;
+  margin: 25px 0;
+  font-size: 14px;
+}
+.footer-container .content_4 input[type="email"] {
+  background-color: var(--textColor);
+  border: none;
+  color: var(--backgroundColor);
+  outline: none;
+  padding: 14px 8px;
+  width: 100%;
+}
+.footer-container .content_4 .f-mail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-container .content_4 .bx {
+  color: var(--white);
+}
+.f-design {
+  width: 100%;
+  color: var(--white);
+  text-align: center;
+}
+.f-design .f-design-txt {
+  border-top: 1px solid var(--secondaryColor);
+  padding: 16px 0;
+  color: var(--secondaryColor);
+}
+#home, #products, #about, #blog, #contact, #payment, #Inspiration {
+  background-color: #f8f8f8;
+  padding: 50px 0;
+}
+
+/* Centering the container and controlling width */
+#home .container, #products .container, #about .container, #blog .container, #contact .container, #payment .container, #Inspiration .container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the title */
+#home h1, #products h1, #about h1, #blog h1, #contact h1, #payment h1, #Inspiration h1 {
+  font-size: 25px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Flexbox for image and text alignment */
+#home .content-container, #products .content-container, #about .content-container, #blog .content-container, #contact .content-container, #payment .content-container, #Inspiration .content-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  text-align: left;
+}
+
+/* Styling for the text content */
+#home .text-content, #products .text-content, #about .text-content, #blog .text-content, #contact .text-content, #payment .text-content, #Inspiration .text-content {
+  width: 50%;
+}
+
+/* Styling for the image */
+#home img, #products img, #about img, #blog img, #contact img, #payment img, #Inspiration img {
+  width: 250px;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Centering Description */
+#Inspiration p {
+  font-size: 19px;
+  color: #555;
+  max-width: 800px;
+  line-height: 28px;
+  padding: 0 15px;
+  text-align: left;
+  margin: 0 auto;
+}
+
+/* Button styling */
+#home a, #products a, #about a, #blog a, #contact a, #payment a, #Inspiration a {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #6096ba;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+#home a:hover, #products a:hover, #about a:hover, #blog a:hover, #contact a:hover, #payment a:hover, #Inspiration a:hover {
+  background-color: #4a7d9e;
+}
+
+/***** End Footer Section *****/
+.search-icon{
+   
+   display: inline-block;
+   transform: rotate(-45deg);
+}
+.sea
+</style>
+</head>
+<body>
+    <header class="section-navbar">
+<div class="container">
+    <div class="navbar-brand">
+<a href="ecommerceproject.html">
+    <img src="/Research/images/6563c341-de35-465b-a1a5-8587b13310e7.png" alt="">
+</a>
+    </div>
+    <form style="align-items: center;">
+        <div class="search">
+<button type="submit" style="border: none; background-color: transparent;">
+  <label for="">
+    <span class="search-icon">
+      &#9906;
+    </span>
+  </label>
+</button>
+<input type="search" class="search-input" placeholder="Search">
+        </div>
+    </form>
+    <nav class="navbar">
+        <ul>
+            <li class="nav-item">
+                <a href="/Home page/Code/ecommerceproject.html" style="color: #1e1f23;">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="/Products page/code/productsb.html" style="color: #1e1f23;">Products</a>
+            </li>
+            <li class="nav-item">
+                <a href="/About us/code/index.html"style="color: #1e1f23;">About</a>
+            </li>
+            <li class="nav-item">
+                <a href="/Blog/code/blog.html"style="color: #1e1f23;">Blog</a>
+            </li>
+            <li class="nav-item">
+                <a href="/Research/reseRCHHHHH.HTML" class="nav-link" style="color: black;">Research</a>
+              </li>
+
+            <li class="nav-item">
+                <a href="/Form Validation/formvalidation.html"  id="signup" style="color: black;">
+                 Signup
+                </a>
+              </li>
+            <li class="nav-item">
+                <a href="/Add to cart/Adtocart.html" class="nav-link add-to-cart-button" id="cartValue" style="color: #1e1f23;">
+                  <label for="">&#128722;</label>
+                </a>
+              </li>
+        </ul>
+    </nav>
+</div>
+    </header>
+  </head>
+  
+  <!--Home page section-->
+  <section id="home" class="page-container">
+    <div class="container">
+      <h1>Welcome to Cassiodor EcomStore</h1>
+      <img src="/Research/images/ss1.png" alt="Homepage">
+      <p>Discover an exclusive collection of luxury timepieces that blend elegance, precision, and innovation. Elevate your style with our meticulously crafted watches and experience the art of timekeeping like never before.</p>
+      <a href="/Home page/Code/ecommerceproject.html" >Start Exploring</a>
+    </div>
+  </section>
+  
+  <!-- Products Page Section -->
+  <section id="products" class="page-container">
+    <div class="container">
+      <h1>Exquisite Timepieces for Every Occasion</h1>
+      <img src="/Research/images/ss2.png" alt="Products">
+      <p>From sophisticated luxury watches to high-tech smartwatches, our collection caters to every taste and lifestyle. Whether you're looking for timeless elegance or modern innovation, we have the perfect watch for you.</p>
+      <a href="/Products page/code/productsb.html" >Browse Collection</a>
+    </div>
+  </section>
+  
+  <!-- About Us Page Section -->
+  <section id="about" class="page-container">
+    <div class="container">
+      <h1>Our Passion, Your Time</h1>
+      <img src="/Research/images/image.png" alt="about">
+      <p>At Cassiodor EcomStore, we are dedicated to bringing you the finest craftsmanship, precision engineering, and timeless aesthetics. Our mission is to provide watches that are more than accessories—they are a statement of sophistication and excellence.</p>
+      <a href="/About us/code/index.html" >Discover Our Story</a>
+    </div>
+  </section>
+  
+  <!-- Blog Page Section -->
+  <section id="blog" class="page-container">
+    <div class="container">
+      <h1>Insights & Inspirations</h1>
+      <img src="/Research/images/ss3.png" alt="blog">
+      <p>Stay updated with the latest trends, expert advice, and insider knowledge from the world of horology. Learn how to care for your watch, explore new styles, and dive into the history of iconic timepieces.</p>
+      <a href="/Blog/code/blog.html" >Read Our Blog</a>
+    </div>
+  </section>
+  
+  <!-- Contact Us Page Section -->
+  <section id="contact" class="page-container">
+    <div class="container">
+      <h1>We’re Here to Help</h1>
+      <img src="/Research/images/ss4.png" alt="contact">
+      <p>Have questions about our products or need assistance? Our dedicated team is ready to provide you with personalized support. Let us help you find the perfect watch.</p>
+      <a href="/Contact us/contactus.html" >Get in Touch</a>
+    </div>
+  </section>
+  
+  <!-- Payment Page Section -->
+  <section id="payment" class="page-container">
+    <div class="container">
+      <h1>Secure & Flexible Payment Options</h1>
+      <img src="/Research/images/ss5.png" alt="payment">
+      <p>Shop with confidence using our trusted payment methods. We offer a range of secure and convenient options to make your purchase hassle-free.</p>
+      <a href="/Paayment methods/paymentmethods.html">Learn More</a>
+    </div>
+  </section>
+  
+  <!-- Our Inspiration Section -->
+<section id="Inspiration" class="page-container">
+    <div class="container">
+      <h1>Inspired by Excellence</h1>
+      <img src="/Research/images/ss6.png" alt="Inspiration">
+      <p>Our design philosophy is influenced by the world’s leading e-commerce platforms, combining modern aesthetics with seamless functionality. We strive to create an intuitive shopping experience that reflects sophistication and innovation.</p>
+      <a href="https://www.rado.com/zh_tw/">Rado</a><br>
+      <a href="https://www.watchesofswitzerland.com/">Watches of Switzerland</a><br>
+      <a href="https://precisionwatches.com/?srsltid=AfmBOopmx0Wkgnq1ie1u5DkQ5C8hIp59m35kTpnTELSiuzfJ4eHu7xxD">Precision Watches</a>
+    </div>
+    </section>
+  
+<!-- Start Footer -->
+  <footer class="section-footer">
+    <div class="footer-container container">
+      <div class="content_1">
+        <img src="/Research/images/6563c341-de35-465b-a1a5-8587b13310e7.png" alt="logo" />
+        <p>Welcome to Cassiodor EcomStore, your ultimate destination for cutting-edge Watches!</p>
+        <img src="/Research/images/cards.png" alt="cards" />
+      </div>
+      <div class="content_2">
+        <h4>SHOPPING</h4>
+        <a href="/Products page/code/productsb.html">Luxury watches Store</a>
+        <a href="/Products page/code/productsb.html#RoutineWatches">Routine watches</a>
+        <a href="/Products page/code/productsb.htmlDigitalWearable">Smart watch Store</a>
+        
+      </div>
+      <div class="content_3">
+        <h4>Experience</h4>
+        <a href="/Contact us/contactus.html">Contact Us</a>
+        <a href="/Paayment methods/paymentmethods.html" target="_blank">Payment Method</a>
+       
+      </div>
+      <div class="content_4">
+        <h4>NEWSLETTER</h4>
+        <p>Be the first to know about new arrivals, sales & promos!</p>
+        <div class="f-mail">
+          <input type="email" placeholder="Your Email" />
+        </div>
+        <hr />
+      </div>
+    </div>
+    <div class="f-design">
+      <div class="f-design-txt">
+        <p>Design and Code by NO-ONE</p>
+      </div>
+    </div>
+  </footer>
+  <!-- End Footer -->
+
+</body>
+</html>
