@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+  <title>Cassiodor</title>
+    <title>Contact Us</title>
+    <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f3; /* Light cream background color */
+      color: #333;
+    }
+    
+    header {
+      background-color: #f6f6f6;
+      color: #000000;
+      padding: 5px 15px; /* Reduced padding for a thinner navbar */
+    }
+    
+    /* Footer Styles */
+    .footer {
+      background-color: #222;
+      color: #fff;
+      text-align: left;
+      padding: 16px 0; /* Converted from 1rem */
+      margin-top: 32px; /* Converted from 2rem */
+    }
+    
+    /* Navigation Bar Styles */
+    nav.navbar {
+      padding: 5px 0; /* Reduced padding for a thinner navbar */
+    }
+    
+    .navbar ul {
+      display: flex;
+      justify-content: space-around;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .navbar ul li {
+      list-style: none;
+    }
+    
+    .navbar ul li a {
+      text-decoration: none;
+      color: #ffffff;
+      padding: 5px 15px; /* Reduced padding */
+      font-size: 14px; /* Reduced font size */
+    }
+    
+    .container {
+      display: flex; /* Default direction (left-to-right) */
+      min-height: 100px;
+    }
+    
+    .sidebar {
+      order: 2; /* Moves the sidebar to the right */
+      width: 50%;
+      background-color: #f4f4f4;
+      padding: 30px;
+    }
+    
+    .main-content {
+      order: 1; /* Moves the images to the left */
+      width: 65%;
+      padding: 20px;
+      background-color: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .sidebar ul li {
+      margin: 20px 0;
+      font-weight: bold;
+      text-align: left;
+    }
+    
+    .form-container {
+      max-width: 400px;
+      background-color: white;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-top: 32px; /* Converted from 2rem */
+      text-align: left;
+    }
+    
+    .form-container h3 {
+      margin-bottom: 32px; /* Converted from 2rem */
+    }
+    
+    .form-container label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    
+    .form-container input,
+    .form-container textarea,
+    .form-container button {
+      width: 100%;
+      margin-bottom: 24px; /* Converted from 1.5rem */
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    
+    .form-container button {
+      background-color: #000000;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+    }
+    
+    .contact-section {
+      text-align: left;
+      padding-left: 10px;
+      margin-top: 32px; /* Converted from 2rem */
+    }
+    
+    .contact-section h2 {
+      color: #3a2b7a;
+      margin-bottom: 16px; /* Converted from 1rem */
+    }
+    
+    .images-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+      margin-bottom: 50px;
+    }
+    
+    .side-image {
+      max-width: 95%;
+      border: 5px solid #ccc;
+      border-radius: 5px;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #222;
+      color: #fff;
+    }
+    .search-icon{
+   
+   display: inline-block;
+   transform: rotate(-45deg);
+}
+    </style>
+</head>
+<body>
+    <header class="section-navbar"> 
+        <div class="container">
+            <div class="navbar-brand">
+              <a href="ecommerceproject.html">
+               <img src="6563c341-de35-465b-a1a5-8587b13310e7.png" alt="">
+              </a>
+            </div>
+            <form style="align-items: center;">
+              <div class="search">
+                <button type="submit" style="border: none; background-color: transparent;">
+
+                  <label for="">
+                    <span class="search-icon">
+                      &#9906;
+                    </span>
+                  </label>
+                </button>
+                  <input  class="search-input" type="search" placeholder="Search">
+              </div>
+            </form>
+            <nav class="navbar">
+              <ul>
+               <li class="nav-item">
+             <a href="/Home page/Code/ecommerceproject.html" class="nav-link">Home</a>
+               </li>
+
+               <li class="nav-item">
+                <a href="/Products page/code/productsb.html" class="nav-link" style="color: black;">products</a>
+              </li>
+
+               <li class="nav-item">
+                <a href="/About us/code/index.html" class="nav-link">about</a>
+              </li>
+              
+              <li class="nav-item">
+                <a href="/Blog/code/blog.html" class="nav-link">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a href="/Sign Up/formvalidation.html"  id="signup" style="color: black;">
+                 Signup
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/Add to cart/Adtocart.html" class="nav-link add-to-cart-button" id="cartValue">
+                  <label for="">&#128722;</label>
+                </a>
+              </li>
+              </ul>
+            </nav> 
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="sidebar">
+            <ul>
+                
+                <li>ADDRESS</li>
+                Baneshwor,Kathmandu
+                <li>CONTACT</li>
+                Contact no: 9874236127<br>
+                Email us on: cassiodor@gmail.com
+                
+            </ul>
+
+            <div class="contact-section">
+                <h2>Contact Information</h2>
+                <p>We’d love to hear from you! If you have any questions about our products or need support, feel free to reach out to us.</p>
+            </div>
+
+            <div class="form-container">
+                <h3>Get in Touch</h3>
+                <form id="contactForm">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="Enter subject">
+
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Write Your Message Here"></textarea>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="images-container">
+                <img src="2023-contact-form-with-svg-anima.jpg" alt="Image 1" class="side-image">
+                
+            </div>
+        </div>
+    </div>
+
+    
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+            alert("Thank you for contacting us! We have received your message.");
+        });
+        
+    </script>
+    <footer class="section-footer">
+        <div class="footer-container container">
+          <div class="content_1">
+            <img src="6563c341-de35-465b-a1a5-8587b13310e7.png" alt="logo" />
+            <p>
+              Welcome to Cassiodor EcomStore, your ultimate destination for
+              cutting-edge Watches!
+            </p>
+            <img src="https://i.postimg.cc/Nj9dgJ98/cards.png" alt="cards" />
+          </div>
+          <div class="content_2">
+            <h4>SHOPPING</h4>
+            <a href="/Products page/code/productsb.html#ClassicChronograph">Luxury watches Store</a>
+            <a href="/Products page/code/productsb.html#DigitalWearable">Smart watch Store</a>
+            <a href="/Products page/code/productsb.html#RoutineWatches">Routine watches</a>
+         
+          </div>
+          <div class="content_3">
+            <h4>Experience</h4>
+            <a href="/Contact us/contactus.html">Contact Us</a>
+            <a href="/Paayment methods/paymentmethods.html" target="_blank">Payment Method</a>
+          </div>
+          <div class="content_4">
+            <h4>NEWSLETTER</h4>
+            <p>Be the first to know about new<br />arrivals, sales & promos!</p>
+            <div class="f-mail">
+              <input type="email" placeholder="Your Email" />
+              <i class="bx bx-envelope"></i>
+            </div>
+            <hr />
+          </div>
+        </div>
+        <div class="f-design">
+          <div class="f-design-txt">
+            <p>Design and Code by NO-ONE</p>
+          </div>
+        </div>
+      </footer>
+</body>
+</html>
